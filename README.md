@@ -11,10 +11,6 @@ Welcome to the Argo Complete Master Course repository. This course is designed t
 
 ## Introduction
 
-## Introduction
-
-## Introduction
-
 Welcome to the Argo CD Complete Master Course, your definitive guide to mastering the declarative, GitOps continuous delivery tool for Kubernetes. Argo CD is part of the Argo project, which is a set of open-source tools for Kubernetes to run workflows, manage clusters, and do GitOps right. This course is specifically tailored to provide a deep dive into Argo CD, allowing you to confidently manage applications' lifecycle in a Kubernetes environment using a Git-centric approach.
 
 Throughout this course, we will cover every facet of Argo CD, from the basic fundamentals to advanced features and best practices:
