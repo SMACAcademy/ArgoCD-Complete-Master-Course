@@ -15,6 +15,7 @@ This command creates a dedicated namespace in your Kubernetes cluster for Argo C
 
 ```bash
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl get all --namespace=argocd
 ```
 
 This applies the Argo CD installation manifest from the official Argo project repository to your cluster within the `argocd` namespace.
@@ -36,7 +37,7 @@ kubectl get svc -n argocd
 kubectl port-forward svc/argocd-server 8080:443 -n argocd
 ```
 
-Retrieve the list of services running for Argo CD and forward the `argocd-server` service port to access the Argo CD server locally at `localhost:8080`.
+Retrieve the list of services running for Argo CD and forward the `argocd-server` service port to access the Argo CD server locally at `localhost:8080`.  If access from remote host is required, then SSH tunnel to be opened.
 
 ## Initial Argo CD Login
 
