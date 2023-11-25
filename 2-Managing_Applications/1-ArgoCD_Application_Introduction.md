@@ -4,19 +4,19 @@
 
 To create an ArgoCD application through the UI, use the following repository and path details:
 
-\```
+
 # Repository URL where the application's definition is stored.
 Repo: https://github.com/SMACAcademy/argocd-example-apps.git
 
 # The path within the repository where the application's definition can be found.
 path: guestbook
-\```
+
 
 ## Creating Apps Via CLI
 
 To manage ArgoCD applications via the command line, follow these commands with explanations:
 
-\```
+
 # Set the current kubectl context to the argocd namespace.
 kubectl config set-context --current --namespace=argocd
 
@@ -37,4 +37,3 @@ argocd app sync guestbookcli
 
 # Delete the application from ArgoCD.
 argocd app delete guestbookcli
-\```
