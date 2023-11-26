@@ -37,6 +37,11 @@ ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. To acce
      To quickly change the service type to NodePort and let Kubernetes allocate an available port, you can use the following command:
      ```sh
      kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+     kubectl get svc -n argocd
+
+     minikube ip
+
+
      ```
      If you want to specify a particular node port, use the following command, replacing `<node_port>` with your chosen port number:
      ```sh

@@ -44,6 +44,9 @@ Retrieve the list of services running for Argo CD and forward the `argocd-server
 
 ```bash
 argocd admin initial-password -n argocd
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
+
+
 argocd login localhost:8080
 argocd cluster list
 argocd app list
