@@ -39,3 +39,9 @@ kubectl apply -f application.yaml
 ```
 
 This command creates the application as defined in the YAML file in ArgoCD, which then syncs the application state with the cluster. After running the command, ArgoCD will monitor the repository at the specified `repoURL` and path. Any changes pushed to the repository will be reflected in the Kubernetes cluster based on the sync policy defined.
+
+## Delete the application
+
+```bash
+kubectl delete -f application.yaml
+```
