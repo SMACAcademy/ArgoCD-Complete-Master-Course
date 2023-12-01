@@ -7,7 +7,7 @@
 
 This is a simple Kubernetes deployment manifest for an Nginx server:
 
-[../0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml](../0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml)
+[0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml](../0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml)
 
 ### 2. Argo CD Application Manifest (`argo-app.yaml`)
 
@@ -32,7 +32,7 @@ This defines the Argo CD application that points to the repository containing yo
 4. **Simulate a Manual Change in the Cluster**:
    - Change the number of replicas:
      ```bash
-     kubectl scale deployment/nginx-deployment --replicas=1
+     kubectl scale deployment/nginx-deployment --replicas=1 -n argocdappdemo
      ```
 
 5. **Observe Argo CD's Self-Healing Action**:
@@ -41,7 +41,7 @@ This defines the Argo CD application that points to the repository containing yo
 6. **Verify the Reversion**:
    - Check the number of replicas:
      ```bash
-     kubectl get deployment/nginx-deployment
+     kubectl get deployment/nginx-deployment -n argocdappdemo
      ```
    - The deployment should be back to 2 replicas.
 
