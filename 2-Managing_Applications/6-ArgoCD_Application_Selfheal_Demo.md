@@ -60,6 +60,8 @@ spec:
 
 ```
 
+[0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml](0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml)
+
 ## Steps and Commands
 
 1. **Commit and Push Your Files to Git Repository**:
@@ -71,7 +73,7 @@ spec:
 3. **Create Argo CD Application**:
    - Apply the Argo CD Application manifest:
      ```bash
-     kubectl apply -f argo-app.yaml
+     kubectl apply -f argo-app.yaml -n argocd
      ```
 
 4. **Simulate a Manual Change in the Cluster**:

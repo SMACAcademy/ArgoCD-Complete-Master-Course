@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: secondapp
+  name: selfhealtestapp
 spec:
   destination:
     name: ''
-    namespace: argocd
+    namespace: selfhealns
     server: 'https://kubernetes.default.svc'
   source:
     path: 0-Demo-Files/Nginx-Deployment
