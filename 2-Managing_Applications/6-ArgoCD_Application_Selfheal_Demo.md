@@ -43,7 +43,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: selfheal1
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
     path: 0-Demo-Files/Nginx-Deployment
