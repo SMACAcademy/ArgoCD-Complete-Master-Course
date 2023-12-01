@@ -39,21 +39,25 @@ This defines the Argo CD application that points to the repository containing yo
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-demo
-  namespace: argocd
+  name: secondapp
 spec:
-  project: default
-  source:
-    repoURL: 'https://<your-git-repo-url>'
-    path: .
-    targetRevision: HEAD
   destination:
+    name: ''
+    namespace: selfheal1
     server: 'https://kubernetes.default.svc'
-    namespace: default
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
+  source:
+    path: 0-Demo-Files/Nginx-Deployment
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
 ```
 
 ## Steps and Commands
