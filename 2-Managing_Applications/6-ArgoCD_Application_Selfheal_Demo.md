@@ -35,7 +35,7 @@ spec:
 
 This defines the Argo CD application that points to the repository containing your Kubernetes manifests:
 
-[0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml](..\0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml)
+[0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app.yaml](../0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app.yaml)
 
 ## Steps and Commands
 
