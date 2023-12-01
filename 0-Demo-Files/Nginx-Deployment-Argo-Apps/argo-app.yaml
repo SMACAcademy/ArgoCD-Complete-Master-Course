@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://<your-git-repo-url>'
-    path: .
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    path: 0-Demo-Files/Nginx-Deployment
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
