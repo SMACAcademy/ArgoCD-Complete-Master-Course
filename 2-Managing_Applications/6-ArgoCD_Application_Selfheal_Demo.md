@@ -7,29 +7,7 @@
 
 This is a simple Kubernetes deployment manifest for an Nginx server:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.14.2
-        ports:
-        - containerPort: 80
-```
+[../0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml](../0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml)
 
 ### 2. Argo CD Application Manifest (`argo-app.yaml`)
 
@@ -43,7 +21,7 @@ This defines the Argo CD application that points to the repository containing yo
    - Place these files in your Git repository and push them.
 
 2. **Install Argo CD in Your Cluster**:
-   - Follow the official documentation: [Argo CD Documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+   - [1-Installation_and_Setup/2-ArogCD_and_ArogCD_CLI_Installation.md](../1-Installation_and_Setup/2-ArogCD_and_ArogCD_CLI_Installation.md)
 
 3. **Create Argo CD Application**:
    - Apply the Argo CD Application manifest:
