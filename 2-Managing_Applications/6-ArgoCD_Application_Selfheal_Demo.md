@@ -35,32 +35,7 @@ spec:
 
 This defines the Argo CD application that points to the repository containing your Kubernetes manifests:
 
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: secondapp
-spec:
-  destination:
-    name: ''
-    namespace: argocd
-    server: 'https://kubernetes.default.svc'
-  source:
-    path: 0-Demo-Files/Nginx-Deployment
-    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
-    targetRevision: HEAD
-  sources: []
-  project: default
-  syncPolicy:
-    automated:
-      prune: false
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-
-```
-
-[0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml](0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml)
+[0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml](..\0-Demo-Files\Nginx-Deployment-Argo-Apps\argo-app.yaml)
 
 ## Steps and Commands
 
