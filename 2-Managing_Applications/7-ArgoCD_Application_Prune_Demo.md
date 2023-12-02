@@ -14,8 +14,8 @@
 
 ### 1. Define a Kubernetes Application
 Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune option.
-s
-[0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
+
+- [0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
 
 ### 2. Apply the Application
 Deploy this application to your Argo CD environment using `kubectl`.

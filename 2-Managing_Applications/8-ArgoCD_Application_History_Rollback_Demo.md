@@ -1,6 +1,9 @@
 
 # ArgoCD History and Rollback Demonstration Steps
-
+## Prerequisites
+- An operational Argo CD installation
+- Access to a Kubernetes cluster with Argo CD installed
+- A Git repository with Kubernetes manifests
 
 ## Git setup
 **Clone files from Git Repository**:

@@ -1,3 +1,9 @@
+## Prerequisites
+- An operational Argo CD installation
+- Access to a Kubernetes cluster with Argo CD installed
+- A Git repository with Kubernetes manifests
+
+
 ### 1. Initial Setup
 **a. Install ArgoCD**
 

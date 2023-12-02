@@ -1,7 +1,12 @@
 
 # Argo CD Self-Healing Feature Demonstration
 
-## Sample Files
+## Prerequisites
+- An operational Argo CD installation
+- Access to a Kubernetes cluster with Argo CD installed
+- A Git repository with Kubernetes manifests
+
+## Steps
 
 ### 1. Deployment Manifest (`nginx-deployment.yaml`)
 
