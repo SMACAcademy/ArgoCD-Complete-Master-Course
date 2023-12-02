@@ -6,24 +6,15 @@ This guide demonstrates how to use the History and Rollback features in ArgoCD.
 ## 1. Initial Setup
 
 ### Deploy an Application
-- Example `application.yaml` file:
-  ```yaml
-  apiVersion: argoproj.io/v1alpha1
-  kind: Application
-  metadata:
-    name: hello-world
-    namespace: argocd
-  spec:
-    project: default
-    source:
-      repoURL: 'https://github.com/your-repository/hello-world.git'
-      targetRevision: HEAD
-      path: k8s-manifests
-    destination:
-      server: 'https://kubernetes.default.svc'
-      namespace: hello-world
-  ```
-- Apply with `kubectl apply -f application.yaml`.
+[0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml)
+
+- Apply with `kubectl apply -f argo-app-history-rollback.yaml`.
+
+ ```bash
+
+kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml
+
+ ```
 
 ## 2. Make Changes to the Application
 

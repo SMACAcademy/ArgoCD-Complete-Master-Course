@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-sample-deployment-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    targetRevision: HEAD
+    path: 0-Demo-Files/Sample_Deployment_Service
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: ns-sample-deployment-service
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
