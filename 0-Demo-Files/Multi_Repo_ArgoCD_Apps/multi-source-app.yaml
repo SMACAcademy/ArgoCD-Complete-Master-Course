@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multi-source-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SMACAcademy/k8s-main-config.git
+    targetRevision: main
+    path: deploy/production
+    sources:
+      - repoURL: https://github.com/SMACAcademy/k8s-additional-config.git
+        targetRevision: main
+        path: config
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

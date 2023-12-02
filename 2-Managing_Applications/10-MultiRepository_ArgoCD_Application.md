@@ -24,11 +24,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/example-org/k8s-main-config
+    repoURL: https://github.com/SMACAcademy/k8s-main-config.git
     targetRevision: main
     path: deploy/production
     sources:
-      - repoURL: https://github.com/example-org/k8s-additional-config
+      - repoURL: https://github.com/SMACAcademy/k8s-additional-config.git
         targetRevision: main
         path: config
   destination:
@@ -63,7 +63,6 @@ The zip file includes two repositories with example Kubernetes configurations:
 - `k8s-main-config`: Contains deployment manifests.
 - `k8s-additional-config`: Contains a ConfigMap configuration.
 
-[Download Multi-Repo ArgoCD Demo](sandbox:/mnt/data/multi-repo-argocd-demo.zip)
 
 ### Notes
 - Ensure Argo CD can access these GitHub repositories.
