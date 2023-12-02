@@ -17,18 +17,16 @@
 
 **c. Deploy an Application**
 
-[0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app-history-rollback.yaml](../0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app-history-rollback.yaml)
+[0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml](../0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml)
 
-- Apply with `kubectl apply -f xxxxxxxx.yaml`.
+- Apply with `liveness-demo-argocd-apps.yaml`.
 
  ```bash
-kubectl apply -f argo-app-history-rollback.yaml
+kubectl apply -f 0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml
 
-argocd app get sample-app
+argocd app get livenesstestapp
 
 ```
-
-- Apply this file with `kubectl apply -f application.yaml`.
 
 ### 2. Configure Health Checks
 **a. Define Health Checks**
@@ -63,7 +61,7 @@ readinessProbe:
 
 ```bash
 
-argocd app get sample-app
+argocd app get livenesstestapp
 
 ```
 
@@ -75,7 +73,7 @@ argocd app get sample-app
  
 ```bash
 
-argocd app resources sample-app
+argocd app resources livenesstestapp
 
 ```
 
@@ -90,6 +88,19 @@ argocd app resources sample-app
 
 - Temporarily modify the health check endpoint in your application to simulate a failure.
 - For example, change the path in the liveness or readiness probe to an invalid endpoint.
+
+```yaml
+
+livenessProbe:
+  httpGet:
+    path: /healthznotexisting
+    port: 8080
+readinessProbe:
+  httpGet:
+    path: /readynotexisting
+    port: 8080
+
+```
 
 **b. Observe the Response**
 
@@ -109,8 +120,14 @@ argocd app resources sample-app
 
 
 ### Clean Up (Optional)
-Delete the application if it was just for demonstration: kubectl delete -f app.yaml -n argocd.
+Delete the application if it was just for demonstration: 
 
+ ```bash
+kubectl delete -f 0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml
+
+argocd app get livenesstestapp
+
+```
 
 ### Notes
 

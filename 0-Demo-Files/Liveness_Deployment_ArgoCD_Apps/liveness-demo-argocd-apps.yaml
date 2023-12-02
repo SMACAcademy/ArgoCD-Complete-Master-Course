@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: livenesstestapp
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: livenessdemo
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 0-Demo-Files/Liveness_Deployment
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
