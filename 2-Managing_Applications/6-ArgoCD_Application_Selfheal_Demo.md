@@ -18,7 +18,7 @@ This defines the Argo CD application that points to the repository containing yo
 ## Steps and Commands
 
 1. **Clone files from Git Repository**:
-   [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
 
 2. **Install Argo CD in Your Cluster**:
    - [1-Installation_and_Setup/2-ArogCD_and_ArogCD_CLI_Installation.md](../1-Installation_and_Setup/2-ArogCD_and_ArogCD_CLI_Installation.md)
@@ -26,7 +26,7 @@ This defines the Argo CD application that points to the repository containing yo
 3. **Create Argo CD Application**:
    - Apply the Argo CD Application manifest:
      ```bash
-     kubectl apply -f argo-app.yaml
+     kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml
      ```
 
 4. **Simulate a Manual Change in the Cluster**:

@@ -1,14 +1,19 @@
 ### 1. Initial Setup
 **a. Install ArgoCD**
 
-
 - Ensure ArgoCD is installed in your Kubernetes cluster. Use the same installation steps as before if it's not already installed.
 
-**b. Deploy an Application**
+
+
+**b. Clone files from Git Repository**:
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
+
+
+**c. Deploy an Application**
 
 [0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app-history-rollback.yaml](../0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app-history-rollback.yaml)
 
-- Apply with `kubectl apply -f argo-app-history-rollback.yaml`.
+- Apply with `kubectl apply -f xxxxxxxx.yaml`.
 
  ```bash
 kubectl apply -f argo-app-history-rollback.yaml

@@ -1,6 +1,11 @@
 
 # ArgoCD History and Rollback Demonstration Steps
 
+
+## Git setup
+**Clone files from Git Repository**:
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
+
 This guide demonstrates how to use the History and Rollback features in ArgoCD.
 
 ## 1. Initial Setup
@@ -8,7 +13,7 @@ This guide demonstrates how to use the History and Rollback features in ArgoCD.
 ### Deploy an Application
 [0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml)
 
-- Apply with `kubectl apply -f argo-app-history-rollback.yaml`.
+- Apply with `kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml`.
 
  ```bash
 

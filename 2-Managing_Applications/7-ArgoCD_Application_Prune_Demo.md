@@ -6,11 +6,15 @@
 - Access to a Kubernetes cluster with Argo CD installed
 - A Git repository with Kubernetes manifests
 
+## Git setup
+**Clone files from Git Repository**:
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
+
 ## Steps
 
 ### 1. Define a Kubernetes Application
 Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune option.
-
+s
 [0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
 
 ### 2. Apply the Application
@@ -18,7 +22,7 @@ Deploy this application to your Argo CD environment using `kubectl`.
 
 **Command:**
 ```bash
-kubectl apply -f argo-app-prune-demo.yaml
+kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml
 ```
 
 ### 3. Modify the Manifests
