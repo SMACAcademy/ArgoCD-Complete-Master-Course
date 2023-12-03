@@ -1,0 +1,73 @@
+
+# Template-Based Configuration in Argo CD using Helm
+
+## 1. Prerequisites
+- A Kubernetes cluster with Argo CD installed.
+- Helm installed locally.
+
+## 2. Demonstration Steps
+
+### Step 1: Create a Helm Chart for Your Application
+1. **Initialize Helm Chart**:
+   ```shell
+   helm create my-template-app
+   ```
+   Creates a basic Helm chart structure in the `my-template-app` directory.
+
+### Step 2: Customize Chart Templates
+1. **Edit `values.yaml`**:
+   ```yaml
+   replicaCount: 1
+
+   image:
+     repository: nginx
+     pullPolicy: IfNotPresent
+     tag: "stable"
+
+   service:
+     type: ClusterIP
+     port: 80
+   ```
+
+2. **Modify Templates**: Use Helm templating syntax in the `templates/` directory.
+
+### Step 3: Create Argo CD Application Manifest
+- `argo-app.yaml`:
+  ```yaml
+  apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: my-template-app
+    namespace: argocd
+  spec:
+    project: default
+    source:
+      repoURL: 'https://your-helm-chart-repo.git'
+      path: my-template-app
+      targetRevision: HEAD
+      helm:
+        releaseName: my-template-app
+    destination:
+      server: 'https://kubernetes.default.svc'
+      namespace: my-app-namespace
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+  ```
+
+### Step 4: Deploy the Application with Argo CD
+1. **Deploy Argo CD Application**:
+   ```shell
+   kubectl apply -f argo-app.yaml
+   ```
+
+### Step 5: Update and Sync Application
+- Update `values.yaml` or templates, commit and push changes.
+
+## 3. Example: Parameterizing the Image Tag
+- Modify the `tag` field in `values.yaml`.
+- Argo CD automatically updates the deployment.
+
+## Conclusion
+This setup demonstrates dynamic and automated management of Kubernetes applications using Argo CD and Helm.
