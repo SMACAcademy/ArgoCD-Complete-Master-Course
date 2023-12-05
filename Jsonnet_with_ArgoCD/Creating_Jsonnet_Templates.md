@@ -11,7 +11,9 @@
 ### 3. **Create a Jsonnet Template**
 
 - Create a file named `deployment.jsonnet` which will be your Jsonnet template for a Kubernetes deployment.
-- Here's an example of what it might look like:```jsonnet
+- Here's an example of what it might look like:
+  
+```jsonnet
 
 local container = function(name, image) {
   name: name,
