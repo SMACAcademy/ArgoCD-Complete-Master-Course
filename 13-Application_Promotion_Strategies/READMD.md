@@ -1,1 +1,17 @@
-# Application Promotion Strategies 
+- Overview of Application Promotion in ArgoCD
+- Designing a Promotion Pipeline with ArgoCD
+- Environment Branching Strategies in GitOps
+- Configuring ArgoCD for Multi-Environment Staging
+- Progressive Delivery with ArgoCD: Canary Deployments
+- Progressive Delivery with ArgoCD: Blue/Green Deployments
+- Automating Promotions Using ArgoCD Sync Waves and Hooks
+- Rollback and Roll-Forwards Strategies for Safe Application Promotion
+- Strategies for Handling Production Changes
+- Implementing Approval Gates in Promotion Workflows
+- Managing Configuration Variance Across Environments
+- Utilizing ArgoCD Image Updater for Automatic Promotion
+- Security Considerations During Application Promotion
+- Tracking and Auditing Promotions in ArgoCD
+- Integrating Testing and Quality Checks into the Promotion Process
+- Troubleshooting Promotion Issues in ArgoCD
+- Best Practices for Scalable and Reliable Application Promotion
