@@ -3,7 +3,7 @@
 
 Create a YAML file that defines your ArgoCD application. Here's an example YAML with explanations:
 
-[0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app.yaml](../0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app.yaml)
+[0-Demo-Files/Nginx-Deployment-Argo-Apps/argo-app.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml)
 
 - `CreateNamespace=true` allows ArgoCD to create the specified namespace if it does not already exist.
 - `selfHeal` ensures that any manual changes made to the resources in the cluster are brought back to the state defined in Git.
