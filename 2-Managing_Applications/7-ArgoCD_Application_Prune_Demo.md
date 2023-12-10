@@ -26,7 +26,7 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
 ```
 
 ### 3. Modify the Manifests
-Make changes to your manifests in the Git repository. For example, remove a resource that was previously deployed.
+Make changes to your manifests in the Git repository. For example, remove a resource(configmap or service) that was previously deployed.
 
 ### 4. Sync the Application
 Argo CD will automatically sync these changes based on the sync policy. If `selfHeal` is enabled, it will sync automatically, or you can manually trigger a sync.
