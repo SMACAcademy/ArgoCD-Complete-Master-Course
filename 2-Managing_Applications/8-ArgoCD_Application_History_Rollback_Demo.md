@@ -14,13 +14,13 @@ This guide demonstrates how to use the History and Rollback features in ArgoCD.
 ## 1. Initial Setup
 
 ### Deploy an Application
-[0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml)
+[0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml)
 
-- Apply with `kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml`.
+- Apply with `kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml`.
 
  ```bash
 
-kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml
+kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-history-rollback.yaml
 
  ```
 

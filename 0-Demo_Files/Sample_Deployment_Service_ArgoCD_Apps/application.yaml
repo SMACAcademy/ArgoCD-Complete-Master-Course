@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
     targetRevision: HEAD
-    path: 0-Demo-Files/Sample_Deployment_Service
+    path: 0-Demo_Files/Sample_Deployment_Service
   destination: 
     server: https://kubernetes.default.svc
     namespace: ns-sample-deployment-service

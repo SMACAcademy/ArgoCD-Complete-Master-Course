@@ -12,13 +12,13 @@
 
 This is a simple Kubernetes deployment manifest for an Nginx server:
 
-[0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml](../0-Demo-Files/Nginx-Deployment/nginx-deployment.yaml)
+[0-Demo_Files/Nginx_Deployment/nginx-deployment.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment/nginx-deployment.yaml)
 
 ### 2. Argo CD Application Manifest (`argo-app.yaml`)
 
 This defines the Argo CD application that points to the repository containing your Kubernetes manifests:
 
-[0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml](../0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml)
+[0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml)
 
 ## Steps and Commands
 
@@ -31,7 +31,7 @@ This defines the Argo CD application that points to the repository containing yo
 3. **Create Argo CD Application**:
    - Apply the Argo CD Application manifest:
      ```bash
-     kubectl apply -f 0-Demo-Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml
+     kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app.yaml
      ```
 
 4. **Simulate a Manual Change in the Cluster**:

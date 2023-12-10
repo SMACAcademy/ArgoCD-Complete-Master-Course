@@ -17,12 +17,12 @@
 
 **c. Deploy an Application**
 
-[0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml](../0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml)
+[0-Demo_Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml)
 
 - Apply with `liveness-demo-argocd-apps.yaml`.
 
  ```bash
-kubectl apply -f 0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml
+kubectl apply -f 0-Demo_Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml
 
 argocd app get livenesstestapp
 
@@ -123,7 +123,7 @@ readinessProbe:
 Delete the application if it was just for demonstration: 
 
  ```bash
-kubectl delete -f 0-Demo-Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml
+kubectl delete -f 0-Demo_Files/Liveness_Deployment_ArgoCD_Apps/liveness-demo-argocd-apps.yaml
 
 argocd app get livenesstestapp
 
