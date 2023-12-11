@@ -4,7 +4,7 @@ metadata:
   name: example-deployment
   namespace: argocdappdemo
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: example
