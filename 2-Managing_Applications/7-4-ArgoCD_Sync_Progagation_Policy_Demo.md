@@ -42,6 +42,8 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
 4. **Apply Different Propagation Policies**:
 
 
+    More Info : https://kubernetes.io/docs/concepts/architecture/garbage-collection/#controlling-how-the-garbage-collector-deletes-dependents
+
     ### 1. Background Propagation Policy
     To use the Background propagation policy, run the following command:
 
