@@ -46,7 +46,7 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
     To use the Background propagation policy, run the following command:
 
     ```bash
-    argocd app sync prunetestapp --sync-policy Background
+    argocd app set prunetestapp --sync-option PrunePropagationPolicy=foreground
     ```
     This policy allows Argo CD to perform the sync operation in the background, continuously applying and re-applying manifests to achieve the desired state.
 
@@ -54,7 +54,7 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
     For the Foreground propagation policy, use this command:
 
     ```bash
-    argocd app sync prunetestapp --sync-policy Foreground
+    argocd app set prunetestapp --sync-option PrunePropagationPolicy=background
     ```
     With Foreground policy, Argo CD deletes resources in the foreground, waiting for the Kubernetes garbage collector to delete all dependent resources before deleting the owner resources.
 
@@ -62,7 +62,7 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
     To use the Orphan propagation policy, which prevents automatic pruning of resources that are no longer tracked in the Git repository, use the following command:
 
     ```bash
-    argocd app set prunetestapp --orphaned-resources true
+    argocd app set prunetestapp --sync-option PrunePropagationPolicy=orphan
     ```
 
     ### 4. Automatic Sync Policy
