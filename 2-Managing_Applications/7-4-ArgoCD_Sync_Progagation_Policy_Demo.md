@@ -40,9 +40,45 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
    - Remove the Service definition from the YAML file and push the changes to your Git repository.
 
 4. **Apply Different Propagation Policies**:
-   - **Foreground**: Update Argo CD to use a foreground propagation policy and synchronize.
-   - **Background**: Change to a background propagation policy and synchronize after restoring the Service.
-   - **Orphan**: Use the orphan policy and synchronize.
+
+
+    ### 1. Background Propagation Policy
+    To use the Background propagation policy, run the following command:
+
+    ```bash
+    argocd app sync prunetestapp --sync-policy Background
+    ```
+    This policy allows Argo CD to perform the sync operation in the background, continuously applying and re-applying manifests to achieve the desired state.
+
+    ### 2. Foreground Propagation Policy
+    For the Foreground propagation policy, use this command:
+
+    ```bash
+    argocd app sync prunetestapp --sync-policy Foreground
+    ```
+    With Foreground policy, Argo CD deletes resources in the foreground, waiting for the Kubernetes garbage collector to delete all dependent resources before deleting the owner resources.
+
+    ### 3. Orphan Propagation Policy
+    To use the Orphan propagation policy, which prevents automatic pruning of resources that are no longer tracked in the Git repository, use the following command:
+
+    ```bash
+    argocd app set prunetestapp --orphaned-resources true
+    ```
+
+    ### 4. Automatic Sync Policy
+    To set the sync policy of the application to 'Auto', use:
+
+    ```bash
+    argocd app set prunetestapp --sync-policy Auto
+    ```
+    This command sets the application's sync policy to automatically sync to its target state whenever the Git repository changes.
+
+    ### 5. Manual Sync Policy
+    To set the application to a Manual sync policy, use:
+
+    ```bash
+    argocd app set prunetestapp --sync-policy Manual
+    ```
 
 5. **Visualization**:
    - Use `kubectl get` commands to observe resource states in your cluster.
