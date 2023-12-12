@@ -31,10 +31,16 @@ Make changes to your manifests in the Git repository. For example, remove a reso
 ### 4. Sync the Application
 Argo CD will automatically sync these changes based on the sync policy. If `selfHeal` is enabled, it will sync automatically, or you can manually trigger a sync.
 
-**Manual Sync Command:**
+**Manual Sync Command (without prune):**
 ```bash
 argocd app sync prunetestapp
 ```
+
+**Manual Sync Command (with prune):**
+```bash
+argocd app sync prunetestapp --prune
+```
+
 
 ### 5. Observe Pruning
 Argo CD will prune (delete) the resources that are no longer present in the repository from the Kubernetes cluster.
@@ -46,6 +52,8 @@ Verify the status of the application and ensure that the pruning occurred as exp
 ```bash
 argocd app get prunetestapp
 ```
+
+
 
 ### 7. Monitoring and Logs
 Monitor the Argo CD UI or check logs for detailed information about the sync and prune process.
