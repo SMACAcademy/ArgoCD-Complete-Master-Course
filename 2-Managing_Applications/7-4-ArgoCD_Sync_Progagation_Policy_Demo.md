@@ -4,51 +4,28 @@
 To demonstrate and visualize the `Propagation Policy` in Argo CD, follow these steps with sample files in a Kubernetes environment.
 
 ## Prerequisites
+- An operational Argo CD installation
+- Access to a Kubernetes cluster with Argo CD installed
+- A Git repository with Kubernetes manifests
 
-- **Kubernetes Cluster**: A running Kubernetes cluster is needed. Options include Minikube, kind, or a cloud-based Kubernetes service.
-- **Argo CD Installation**: Argo CD must be installed in your cluster. Refer to the [official installation guide](https://argo-cd.readthedocs.io/en/stable/getting_started/).
+## Git setup
+**Clone files from Git Repository**:
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
 
-## Sample Application Files
+## Steps
 
-1. **Create a Git Repository**: Use a public GitHub repository to host your application configuration files.
+### 1. Define a Kubernetes Application
+Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune optison.
 
-2. **Sample Application Configuration**: Here's an example YAML file for a basic Kubernetes Deployment and Service.
+- [0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
 
-   ```yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     name: sample-app
-   spec:
-     replicas: 2
-     selector:
-       matchLabels:
-         app: sample-app
-     template:
-       metadata:
-         labels:
-           app: sample-app
-       spec:
-         containers:
-         - name: nginx
-           image: nginx:1.19.4
-           ports:
-           - containerPort: 80
-   ---
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: sample-app-service
-   spec:
-     selector:
-       app: sample-app
-     ports:
-     - protocol: TCP
-       port: 80
-       targetPort: 80
-   ```
+### 2. Apply the Application
+Deploy this application to your Argo CD environment using `kubectl`.
 
-   Push this YAML to your Git repository.
+**Command:**
+```bash
+kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml
+```
 
 ## Steps to Visualize Propagation Policy
 

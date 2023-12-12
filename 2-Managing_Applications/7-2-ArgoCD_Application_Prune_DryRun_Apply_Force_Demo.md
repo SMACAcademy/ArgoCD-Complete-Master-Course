@@ -24,69 +24,39 @@ Each of these options serves a different purpose in managing the state of your K
 
 This guide provides sample files and commands to demonstrate different Argo CD synchronization options like `prune`, `dry run`, `apply only`, and `force`.
 
-## Sample Kubernetes Application
+### 1. Define a Kubernetes Application
+Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune option.
 
-Create two files in your Git repository:
+- [0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
 
-1. **Deployment (deployment.yaml)**
+### 2. Apply the Application
+Deploy this application to your Argo CD environment using `kubectl`.
 
-   ```yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     name: example-app
-   spec:
-     replicas: 2
-     selector:
-       matchLabels:
-         app: example
-     template:
-       metadata:
-         labels:
-           app: example
-       spec:
-         containers:
-         - name: nginx
-           image: nginx:1.19.4
-           ports:
-           - containerPort: 80
-   ```
+**Command:**
+```bash
+kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml
+```
 
-2. **Service (service.yaml)**
 
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: example-service
-   spec:
-     selector:
-       app: example
-     ports:
-     - protocol: TCP
-       port: 80
-       targetPort: 80
-   ```
-
-## Argo CD Commands and Options
+### 3. Argo CD Commands and Options
 
 1. **Dry Run**:
-   - Command: `argocd app sync APP_NAME --dry-run`
+   - Command: `argocd app sync prunetestapp --dry-run`
    - Observe changes without applying them.
 
 2. **Apply Only (Without Prune)**:
-   - Command: `argocd app sync APP_NAME`
+   - Command: `argocd app sync prunetestapp`
    - Applies changes but doesn't delete anything removed from the repository.
 
 3. **Prune**:
-   - Command: `argocd app sync APP_NAME --prune`
+   - Command: `argocd app sync prunetestapp --prune`
    - Deletes resources in the cluster that are no longer in the repository.
 
 4. **Force**:
-   - Command: `argocd app sync APP_NAME --force`
+   - Command: `argocd app sync prunetestapp --force`
    - Reapplies all resources in the repository to the cluster.
 
-## Visualization and Understanding
+### 5. Visualization and Understanding
 
 - Monitor the application status using Argo CD UI or CLI.
 - Use `kubectl get all` to observe changes in your Kubernetes cluster.
