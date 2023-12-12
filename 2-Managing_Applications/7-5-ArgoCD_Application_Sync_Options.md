@@ -3,52 +3,55 @@
 
 This guide provides sample files and commands to demonstrate various Argo CD synchronization options like `skip schema validation`, `prune last`, `respect ignore differences`, `apply out of sync only`, and `serverside apply`.
 
-## Sample Kubernetes Application
+## Prerequisites
+- An operational Argo CD installation
+- Access to a Kubernetes cluster with Argo CD installed
+- A Git repository with Kubernetes manifests
 
-Create two files in your Git repository:
+## Git setup
+**Clone files from Git Repository**:
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
 
-1. **Deployment (deployment.yaml)**
+## Steps
 
-   ```yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     name: demo-app
-   spec:
-     replicas: 2
-     selector:
-       matchLabels:
-         app: demo
-     template:
-       metadata:
-         labels:
-           app: demo
-       spec:
-         containers:
-         - name: nginx
-           image: nginx:1.19.4
-           ports:
-           - containerPort: 80
-   ```
+### 1. Define a Kubernetes Application
+Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune optison.
 
-2. **Service (service.yaml)**
+- [0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
 
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: demo-service
-   spec:
-     selector:
-       app: demo
-     ports:
-     - protocol: TCP
-       port: 80
-       targetPort: 80
-   ```
+### 2. Apply the Application
+Deploy this application to your Argo CD environment using `kubectl`.
+
+**Command:**
+```bash
+kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml
+```
 
 
+## Argo CD Commands for Different Options
 
+
+1. **Skip Schema Validation**:
+   - Command: `argocd app set prunetestapp --sync-option Validate=false`
+
+2. **Prune Last**:
+   - Command: `argocd app set prunetestapp --sync-option PruneLast=true`
+
+3. **Respect Ignore Differences**:
+   - Command: `argocd app set prunetestapp --sync-option RespectIgnoreDifferences=true`
+
+4. **Apply Out of Sync Only**:
+   - Command: `argocd app set prunetestapp --sync-option ApplyOutOfSyncOnly=true`
+
+5. **Serverside Apply**:
+   - Command: `argocd app set prunetestapp --sync-option ServerSideApply=true`
+   
+6. **Create Namespace**:
+   - Command: `argocd app set prunetestapp --sync-option CreateNamespace=true`  
+
+
+## Argo CD CLI Command to sync the application after setting the above options
+   - Sync Application using `argocd app sync prunetestapp`
 
 ## Argo CD Prune Options: Purpose, Function, and Use Cases
 
@@ -81,31 +84,14 @@ This document explains the purpose, functionality, and typical use cases for var
 
 These options provide advanced control over the sync process in Argo CD, allowing for more tailored and efficient management of Kubernetes resources.
 
-## Argo CD Commands for Different Options
 
-
-1. **Skip Schema Validation**:
-   - Command: `argocd app sync APP_NAME --skip-schema-validation`
-
-2. **Prune Last**:
-   - Command: `argocd app sync APP_NAME --prune-last`
-
-3. **Respect Ignore Differences**:
-   - Command: `argocd app sync APP_NAME --respect-ignore-differences`
-
-4. **Apply Out of Sync Only**:
-   - Command: `argocd app sync APP_NAME --sync-option OutOfSyncOnly=true`
-
-5. **Serverside Apply**:
-   - Command: `argocd app sync APP_NAME --server-side`
 
 ## Visualization and Understanding
 
 - Monitor the application in Argo CD after running each command.
-- Use `kubectl` commands to see the state of Kubernetes resources.
+- Use `kubectl get all -n argocdappdemo` commands to see the state of Kubernetes resources.
 - Compare the states to understand the impact of each synchronization option.
 
 ## Note
 
-- Replace `APP_NAME` with the actual name of your Argo CD application.
 - Ensure your Kubernetes cluster and Argo CD are set up to track the repository containing these files.

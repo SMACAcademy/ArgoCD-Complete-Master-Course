@@ -67,20 +67,7 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
     argocd app set prunetestapp --sync-option PrunePropagationPolicy=orphan
     ```
 
-    ### 4. Automatic Sync Policy
-    To set the sync policy of the application to 'Auto', use:
-
-    ```bash
-    argocd app set prunetestapp --sync-policy Auto
-    ```
-    This command sets the application's sync policy to automatically sync to its target state whenever the Git repository changes.
-
-    ### 5. Manual Sync Policy
-    To set the application to a Manual sync policy, use:
-
-    ```bash
-    argocd app set prunetestapp --sync-policy Manual
-    ```
+    
 
 5. **Visualization**:
    - Use `kubectl get` commands to observe resource states in your cluster.

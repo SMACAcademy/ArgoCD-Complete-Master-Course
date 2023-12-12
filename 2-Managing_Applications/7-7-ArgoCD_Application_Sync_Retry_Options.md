@@ -10,19 +10,6 @@ Create a deployment in your Git repository designed to fail initially:
 1. **Deployment (deployment.yaml)**
 
    ```yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     name: demo-app-retry
-   spec:
-     replicas: 1
-     selector:
-       matchLabels:
-         app: demo-app-retry
-     template:
-       metadata:
-         labels:
-           app: demo-app-retry
        spec:
          containers:
          - name: nginx
@@ -38,14 +25,11 @@ Create a deployment in your Git repository designed to fail initially:
    - Deploy the resource using Argo CD, which will fail due to the incorrect Docker image.
 
 2. **Correct the Deployment**:
-   - Update `deployment.yaml` to a correct image, like `nginx:1.19.4`.
+   - Update `deployment.yaml` to a correct image, like `nginx:1.19.4` .
    - Commit and push the changes.
 
-3. **Apply Retry Sync Option**:
-   - Use the command: `argocd app sync APP_NAME --retry`
-
-4. **Observe the Changes**:
-   - Use `kubectl get deployment demo-app-retry` to see the successful deployment after retry.
+3. **Observe the Changes**:
+   - Use `kubectl describe deployment example-deployment -n argocdappdemo` to see the successful deployment after retry.
 
 ## Visualization and Understanding
 
@@ -53,5 +37,4 @@ Create a deployment in your Git repository designed to fail initially:
 
 ## Note
 
-- Replace `APP_NAME` with your Argo CD application name.
 - Ensure your Kubernetes cluster and Argo CD are configured to track your Git repository.
