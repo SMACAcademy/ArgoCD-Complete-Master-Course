@@ -17,6 +17,10 @@ This guide provides sample files and commands to demonstrate various Argo CD syn
 ### 1. Define a Kubernetes Application
 Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune optison.
 
+For other demo
+- [0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
+
+For Schema validation demo
 - [0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml)
 
 ### 2. Apply the Application
@@ -25,6 +29,11 @@ Deploy this application to your Argo CD environment using `kubectl`.
 **Command:**
 ```bash
 kubectl apply -f 0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml
+```
+
+**Command:**
+```bash
+kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml
 ```
 
 
