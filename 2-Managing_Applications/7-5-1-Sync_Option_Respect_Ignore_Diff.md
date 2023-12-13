@@ -35,7 +35,7 @@ Simulate a cluster-side change:
 
 **Kubectl Command:**
 ```bash
-kubectl patch configmap demo-configmap -p '{"data":{"key1":"new-value"}}'
+kubectl patch configmap demo-configmap -p '{"data":{"key1":"new-value"}}' -n argocdappdemo-ignorediff
 ```
 
 ### 4. Observe Out-of-Sync Status in ArgoCD
