@@ -48,5 +48,5 @@ spec:
         - containerPort: 80
   # Intentional Schema Validation Issue
   # The 'replicas' field is not valid for a Pod specification.
-  #replicas: 3
+  replicas: 3
 
