@@ -5,6 +5,7 @@ metadata:
   #annotations:
     #argocd.argoproj.io/sync-options: Validate=false
 spec:
+  invalidField: invalidValue  # This field is intentionally invalid
   containers:
     - name: nginx-container
       image: nginx:latest
