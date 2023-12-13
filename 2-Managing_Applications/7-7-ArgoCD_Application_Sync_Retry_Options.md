@@ -3,33 +3,34 @@
 
 This guide provides sample files and commands to demonstrate the `retry` sync option in Argo CD, useful for reattempting deployments after transient failures or issues.
 
-## Sample Kubernetes Application
+## Git setup
+**Clone files from Git Repository**:
+   - [2-Managing_Applications/0-Cloning_Git_Repo.md](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/2-Managing_Applications/0-Cloning_Git_Repo.md)
 
-Create a deployment in your Git repository designed to fail initially:
+## Steps
 
-1. **Deployment (deployment.yaml)**
+### 1. Define a Kubernetes Application
+Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune optison.
 
-   ```yaml
-       spec:
-         containers:
-         - name: nginx
-           # Using a non-existent or wrong image to cause initial failure
-           image: nginx:non-existent
-           ports:
-           - containerPort: 80
-   ```
+- [0-Demo_Files/Sync_Retry_Apps/argo-app-sync-retry.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Sync_Retry_Apps/argo-app-sync-retry.yaml)
 
-## Demonstrating the Retry Sync Option
+### 2. Apply the Application
+Deploy this application to your Argo CD environment using `kubectl`.
 
-1. **Initial Deployment with Failure**:
-   - Deploy the resource using Argo CD, which will fail due to the incorrect Docker image.
+**Command:**
+```bash
+kubectl apply -f 0-Demo_Files/Sync_Retry_Apps/argo-app-sync-retry.yaml
+```
+
+
+
 
 2. **Correct the Deployment**:
    - Update `deployment.yaml` to a correct image, like `nginx:1.19.4` .
    - Commit and push the changes.
 
 3. **Observe the Changes**:
-   - Use `kubectl describe deployment example-deployment -n argocdappdemo` to see the successful deployment after retry.
+   - Use `kubectl describe deployment example-deployment -n argocdappdemo-retry` to see the successful deployment after retry.
 
 ## Visualization and Understanding
 
