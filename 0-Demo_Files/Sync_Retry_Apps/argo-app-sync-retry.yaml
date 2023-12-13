@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-options-retry
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: argocdappdemo-retry  
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 0-Demo_Files/Sync_Retry
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

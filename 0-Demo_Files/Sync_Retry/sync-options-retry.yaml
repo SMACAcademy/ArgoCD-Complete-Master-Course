@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: example-deployment
-  namespace: argocdappdemo-ignorediff
+  namespace: argocdappdemo-v
 spec:
   replicas: 2
   selector:
@@ -16,6 +16,7 @@ spec:
       containers:
       - name: nginx
         image: nginx:1.14.2
+        #image: nginx:non-existent
         ports:
         - containerPort: 80
 
@@ -25,7 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: example-service
-  namespace: argocdappdemo-ignorediff
+  namespace: argocdappdemo-retry
 spec:
   selector:
     app: example
@@ -41,7 +42,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: demo-configmap
-  namespace: argocdappdemo-ignorediff
+  namespace: argocdappdemo-retry
 data:
   key1: "value1"
   key2: "value2"
