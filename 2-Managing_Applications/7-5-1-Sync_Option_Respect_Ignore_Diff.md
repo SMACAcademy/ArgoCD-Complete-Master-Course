@@ -19,14 +19,14 @@ This guide outlines how to demonstrate the "Respect Ignore Differences" feature 
 ### 1. Define a Kubernetes Application
 Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune optison.
 
-- [0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml)
+- [0-Demo_Files/Ignore_Diff_Apps/argo-app-sync-Ignorediff.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Ignore_Diff_Apps/argo-app-sync-Ignorediff.yaml)
 
 ### 2. Apply the Application
 Deploy this application to your Argo CD environment using `kubectl`.
 
 **Command:**
 ```bash
-kubectl apply -f 0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml
+kubectl apply -f 0-Demo_Files/Ignore_Diff_Apps/argo-app-sync-Ignorediff.yaml
 ```
 
 
