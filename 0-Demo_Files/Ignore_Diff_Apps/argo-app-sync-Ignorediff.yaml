@@ -12,6 +12,11 @@ spec:
     path: 0-Demo_Files/Ignore_Diff
     repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
     targetRevision: HEAD
+  ignoreDifferences:
+    - kind: ConfigMap
+      name: demo-configmap
+      jsonPointers:
+        - /data/key1  
   sources: []
   project: default
   syncPolicy:
