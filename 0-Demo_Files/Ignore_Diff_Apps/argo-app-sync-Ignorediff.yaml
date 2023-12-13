@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: argocdappdemo  
+    namespace: argocdappdemo-ignorediff  
     server: 'https://kubernetes.default.svc'
   source:
     path: 0-Demo_Files/Ignore_Diff
