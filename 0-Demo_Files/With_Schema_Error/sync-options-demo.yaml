@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: demo-pod
-  #annotations:
-    #argocd.argoproj.io/sync-options: Validate=false
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=true
 spec:
   invalidField: invalidValue  # This field is intentionally invalid
   containers:
