@@ -28,6 +28,8 @@ Deploy this application to your Argo CD environment using `kubectl`.
 
 **Command:**
 ```bash
+kubectl apply -f 0-Demo_Files/With_Schema_Error/sync-options-demo.yaml --dry-run=server
+
 kubectl apply -f 0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml
 ```
 
