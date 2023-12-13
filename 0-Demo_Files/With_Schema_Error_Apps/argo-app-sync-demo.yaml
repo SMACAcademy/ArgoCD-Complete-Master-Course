@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: syncoptionsdemo
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: argocdappdemo  
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 0-Demo_Files/With_Schema_Error
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
