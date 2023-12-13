@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sync-options-ignorediff
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: argocdappdemo  
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 0-Demo_Files/Ignore_Diff
+    repoURL: 'https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true

@@ -17,14 +17,14 @@ This guide provides sample files and commands to demonstrate various Argo CD syn
 ### 1. Define a Kubernetes Application
 Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune optison.
 
-- [0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml)
+- [0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml)
 
 ### 2. Apply the Application
 Deploy this application to your Argo CD environment using `kubectl`.
 
 **Command:**
 ```bash
-kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.yaml
+kubectl apply -f 0-Demo_Files/With_Schema_Error_Apps/argo-app-sync-demo.yaml
 ```
 
 
@@ -32,22 +32,22 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
 
 
 1. **Skip Schema Validation**:
-   - Command: `argocd app set prunetestapp --sync-option Validate=false`
+   - Command: `argocd app set syncoptionsdemo --sync-option Validate=false`
 
 2. **Prune Last**:
-   - Command: `argocd app set prunetestapp --sync-option PruneLast=true`
+   - Command: `argocd app set syncoptionsdemo --sync-option PruneLast=true`
 
 3. **Respect Ignore Differences**:
-   - Command: `argocd app set prunetestapp --sync-option RespectIgnoreDifferences=true`
+   - Command: `argocd app set syncoptionsdemo --sync-option RespectIgnoreDifferences=true`
 
 4. **Apply Out of Sync Only**:
-   - Command: `argocd app set prunetestapp --sync-option ApplyOutOfSyncOnly=true`
+   - Command: `argocd app set syncoptionsdemo --sync-option ApplyOutOfSyncOnly=true`
 
 5. **Serverside Apply**:
-   - Command: `argocd app set prunetestapp --sync-option ServerSideApply=true`
+   - Command: `argocd app set syncoptionsdemo --sync-option ServerSideApply=true`
    
 6. **Create Namespace**:
-   - Command: `argocd app set prunetestapp --sync-option CreateNamespace=true`  
+   - Command: `argocd app set syncoptionsdemo --sync-option CreateNamespace=true`  
 
 
 ## Argo CD CLI Command to sync the application after setting the above options
