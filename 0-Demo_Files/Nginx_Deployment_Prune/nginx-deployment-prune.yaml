@@ -28,10 +28,10 @@ metadata:
   namespace: argocdappdemo
 spec:
   selector:
-    app1: example
+    app: example
   ports:
     - protocol: TCP
-      port: 80
+      ports: 80
       targetPort: 80
 
 ---
