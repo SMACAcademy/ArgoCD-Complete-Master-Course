@@ -62,7 +62,7 @@ kubectl apply -f 0-Demo_Files/Nginx_Deployment_ArgoCD_Apps/argo-app-prune-demo.y
 
 
 ## Argo CD CLI Command to sync the application after setting the above options
-   - Sync Application using `argocd app sync prunetestapp`
+   - Sync Application using `argocd app sync syncoptionsdemo`
 
 ## Argo CD Prune Options: Purpose, Function, and Use Cases
 
