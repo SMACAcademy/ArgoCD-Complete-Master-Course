@@ -36,11 +36,11 @@ spec:
 
 ---
 
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: example-configmap
-#  namespace: argocdappdemo
-#data:
-#  key1: value1
-#  key2: value2
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-configmap
+  namespace: argocdappdemo
+data:
+  key1: value1
+  key2: value2
