@@ -17,7 +17,7 @@ spec:
         image: registry.k8s.io/liveness
         livenessProbe:
           httpGet:
-            path: /healthz
+            path: /health
             port: 8080
           initialDelaySeconds: 3
           periodSeconds: 3
