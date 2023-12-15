@@ -18,6 +18,23 @@ Consider a Git repository with this structure:
     └── common.yaml
 ```
 
+## Steps
+
+### 1. Define a Kubernetes Application
+Create an `Application` resource in Argo CD. This YAML file defines the application, its source repository, and the sync policy, including the prune option.
+
+- [0-Demo_Files/Params_Demo_Apps/argo-app-param-demo.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Params_Demo_Apps/argo-app-param-demo.yaml)
+
+### 2. Apply the Application
+Deploy this application to your Argo CD environment using `kubectl`.
+
+**Command:**
+```bash
+kubectl apply -f 0-Demo_Files/Params_Demo_Apps/argo-app-param-demo.yaml
+```
+
+
+
 ## 1. Directory Recurse
 
 - **Purpose**: Recursively look into directories for Kubernetes manifests.
