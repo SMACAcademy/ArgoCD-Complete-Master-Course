@@ -72,7 +72,7 @@ kubectl apply -f 0-Demo_Files/Params_Demo_Apps/argo-app-param-demo.yaml
   ```yaml
   source:
     repoURL: 'https://your-repo-url.git'
-    path: 'apps/app1'
+    path: 'apps/app1/*'
   ```
 
 ## Visualization and Understanding
