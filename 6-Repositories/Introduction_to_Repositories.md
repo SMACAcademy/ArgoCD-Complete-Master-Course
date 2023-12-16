@@ -40,16 +40,8 @@ You'll need a Git repository with Kubernetes manifests. Here's how to set it up:
 
 3. **Commit and Push**: Add the file to your repository and push the changes.
 
-## 3. Accessing Argo CD UI
-1. **Port-Forwarding**: Forward the Argo CD API server to access the UI:
 
-   ```bash
-   kubectl port-forward svc/argocd-server -n argocd 8080:443
-   ```
-
-2. **Open the UI**: Access the UI by navigating to `http://localhost:8080` in your browser.
-
-## 4. Adding a Repository in Argo CD
+## 3. Adding a Repository in Argo CD
 1. **Login to Argo CD**: Use the default admin account (password can be retrieved from Kubernetes secret).
 
 2. **Add Your Repository**:
@@ -69,8 +61,3 @@ You'll need a Git repository with Kubernetes manifests. Here's how to set it up:
 ## 7. Verification
 - Use `kubectl` to verify the deployment in your Kubernetes cluster.
 
-## 8. Updating the Application
-- Update the manifest in your Git repository. Argo CD will detect the change and update the deployment in the cluster.
-
-## Conclusion
-This basic demonstration covers the fundamentals of using repositories in Argo CD. It includes setting up a sample application, adding it to Argo CD, and managing its deployment through GitOps principles. For more advanced use cases, refer to the [official Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/).

@@ -12,27 +12,16 @@ Argo CD Projects group and manage applications, defining repositories, destinati
 
 ## 3. Creating a New Project
 
-### A. Using the CLI
-Create a project definition file and apply it with kubectl.
 
-`myproject.yaml`:
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: myproject
-  namespace: argocd
-spec:
-  description: "My Argo CD Project"
-  sourceRepos:
-  - "https://github.com/myusername/my-repo.git"
-  destinations:
-  - namespace: mynamespace
-    server: "https://kubernetes.default.svc"
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-```
+### 1. Define a Project
+Create a `Project` resource in Argo CD. This YAML file defines the project.
+
+- [myproject.yaml](myproject.yaml)
+
+### 2. Apply the Application
+Deploy this application to your Argo CD environment using `kubectl`.
+
+**Command:**
 
 Apply the project:
 ```bash
@@ -66,22 +55,8 @@ spec:
 Create and manage applications within the context of the project.
 
 Example application definition:
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: myapp
-  namespace: argocd
-spec:
-  project: myproject
-  source:
-    repoURL: 'https://github.com/myusername/my-repo.git'
-    path: path/to/app
-    targetRevision: HEAD
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: mynamespace
-```
+
+project-application.yaml
 
 ## 7. Monitoring and Maintenance
 Regularly monitor applications and update project configurations as needed.

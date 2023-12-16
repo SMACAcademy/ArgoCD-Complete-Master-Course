@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: myproject
+  namespace: argocd
+spec:
+  description: "My Argo CD Project"
+  sourceRepos:
+  - "https://github.com/myusername/my-repo.git"
+  destinations:
+  - namespace: mynamespace
+    server: "https://kubernetes.default.svc"
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
