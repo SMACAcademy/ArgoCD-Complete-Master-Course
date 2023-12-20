@@ -4,6 +4,11 @@
 ## Step 1: Create an Argo CD Project with Finalizers
 Define an Argo CD `AppProject` with a finalizer in a YAML file:
 
+### 1. Deployment Manifest (`sync-window.yaml`)
+
+This is a simple Kubernetes deployment manifest for an argocd project:
+
+[0-Demo_Files/Project_Intro/project_with_finalizer.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Project_Intro/project_with_finalizer.yaml)
 
 
 
@@ -11,7 +16,7 @@ Define an Argo CD `AppProject` with a finalizer in a YAML file:
 Create the project in Argo CD:
 
 ```bash
-kubectl apply -f project_with_finalizer.yaml
+kubectl apply -f 0-Demo_Files/Project_Intro/project_with_finalizer.yaml
 ```
 
 ## Step 3: Attempt to Delete the Project
