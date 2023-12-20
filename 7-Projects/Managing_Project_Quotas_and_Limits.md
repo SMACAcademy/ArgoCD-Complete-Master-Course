@@ -65,6 +65,12 @@ Apply the updated configuration:
 kubectl apply -f 0-Demo_Files/Project_Intro/project_quota.yaml
 ```
 
+Project path
+```
+0-Demo_Files/Demo_Resource_Limit
+```
+
+
 ## 6. Deploying Applications under the Project Quota
 Deploy applications within the project to adhere to the set quotas.
 
