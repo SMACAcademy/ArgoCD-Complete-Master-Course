@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: syncwindow-demo-project
+spec:
+  syncWindows:
+  - kind: allow
+    schedule: '10 1 * * *'
+    duration: 1h
+    applications:
+    - '*-prod'
+    manualSync: true
+  - kind: deny
+    schedule: '0 22 * * *'
+    duration: 1h
+    namespaces:
+    - default
+  - kind: allow
+    schedule: '0 23 * * *'
+    duration: 1h
+    clusters:
+    - in-cluster
+    - cluster1
