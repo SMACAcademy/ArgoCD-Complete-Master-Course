@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimal-resource-deployment
+  labels:
+    app: minimal-resource-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minimal-resource-app
+  template:
+    metadata:
+      labels:
+        app: minimal-resource-app
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        resources:
+          requests:
+            cpu: "100m"   # Requesting 100 milliCPUs
+            memory: "64Mi" # Requesting 64 MiB of memory
