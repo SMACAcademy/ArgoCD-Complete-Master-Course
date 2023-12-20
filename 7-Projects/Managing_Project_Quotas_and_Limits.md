@@ -56,30 +56,13 @@ kubectl apply -f resource-quota.yaml
 ## 5. Configuring Project Limits in Argo CD
 Edit the project to include resource limits.
 
-Updated Project Definition (`sample-project.yaml`):
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: sample-project
-  namespace: argocd
-spec:
-  ...
-  resourceQuotas:
-    - scope:
-        kind: ResourceQuota
-        name: sample-quota
-      spec:
-        hard:
-          requests.cpu: "1"
-          requests.memory: 1Gi
-          limits.cpu: "2"
-          limits.memory: 2Gi
-```
+Updated Project Definition (`project_quota.yaml`):
+
+[0-Demo_Files/Project_Intro/project_quota.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Project_Intro/project_quota.yaml)
 
 Apply the updated configuration:
 ```bash
-kubectl apply -f sample-project.yaml
+kubectl apply -f 0-Demo_Files/Project_Intro/project_quota.yaml
 ```
 
 ## 6. Deploying Applications under the Project Quota
@@ -89,11 +72,4 @@ Deploy applications within the project to adhere to the set quotas.
 - Monitor resource usage in the Argo CD UI.
 - Adjust quotas as needed.
 
-## 8. Best Practices
-- Set realistic quotas based on application needs and cluster capacity.
-- Use quotas for fair resource allocation.
 
-## 9. Conclusion
-Effective resource management in Kubernetes using Argo CD project quotas ensures optimal resource utilization.
-
-For more details, refer to the [official Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/) and [Kubernetes documentation on resource quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/).

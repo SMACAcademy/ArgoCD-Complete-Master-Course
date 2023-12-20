@@ -6,7 +6,7 @@ Define a sync window in your Argo CD project to specify when synchronization can
 
 ### 1. Deployment Manifest (`sync-window.yaml`)
 
-This is a simple Kubernetes deployment manifest for an Nginx server:
+This is a simple Kubernetes deployment manifest for an argocd project:
 
 [0-Demo_Files/Project_Intro/sync-window.yaml](https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course/blob/main/0-Demo_Files/Project_Intro/sync-window.yaml)
 
