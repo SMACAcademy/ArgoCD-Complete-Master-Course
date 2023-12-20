@@ -1,35 +1,17 @@
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
+apiVersion: v1
+kind: ResourceQuota
 metadata:
-  name: example-project-quota
-  namespace: argocd
+  name: argodemo-ns-quota
+  namespace: argodemo
 spec:
-  description: 'Example project with resource quotas and limits'
-
-  # Define the source repositories for the applications
-  sourceRepos:
-    - '*'
-
-  # Specify the destinations for deployment
-  destinations:
-    - namespace: 'default'
-      server: 'https://kubernetes.default.svc'
-
-  # Setting up project quotas and limits
-  clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
-
-  # Resource quota limits
-  resourceQuotas:
-    - limit:
-        pods: '10'                  # Maximum number of pods
-        services: '5'               # Maximum number of services
-        replicationControllers: '5' # Maximum number of replication controllers
-        secrets: '10'               # Maximum number of secrets
-        configMaps: '10'            # Maximum number of configMaps
-        persistentVolumeClaims: '4' # Maximum number of persistentVolumeClaims
-        requests.cpu: '1000m'       # Total requested CPU resources
-        requests.memory: '1Gi'      # Total requested memory
-        limits.cpu: '2000m'         # Total CPU limits
-        limits.memory: '2Gi'        # Total memory limits
+  hard:
+    pods: "4"
+    services: "5"
+    replicationcontrollers: "5"
+    secrets: "10"
+    configmaps: "10"
+    persistentvolumeclaims: "4"
+    requests.cpu: "1000m"
+    requests.memory: "1Gi"
+    limits.cpu: "2000m"
+    limits.memory: "2Gi"
