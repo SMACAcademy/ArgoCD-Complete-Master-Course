@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: example-project-with-finalizer
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: "Example project with finalizers"
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: 'default'
+      server: 'https://kubernetes.default.svc'

@@ -4,21 +4,8 @@
 ## Step 1: Create an Argo CD Project with Finalizers
 Define an Argo CD `AppProject` with a finalizer in a YAML file:
 
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: example-project-with-finalizer
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  description: "Example project with finalizers"
-  sourceRepos:
-    - '*'
-  destinations:
-    - namespace: 'default'
-      server: 'https://kubernetes.default.svc'
-```
+
+
 
 ## Step 2: Apply the Project Configuration
 Create the project in Argo CD:
