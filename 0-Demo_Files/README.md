@@ -16,6 +16,8 @@ https://github.com/SMACAcademy/ArgoCD-Complete-Master-Course.git
 - 0-Demo_Files/Sample_Deployment_Service
 
 
+- 0-Demo_Files/Demo_Resource_Limit
+
 ## Apps
 
 

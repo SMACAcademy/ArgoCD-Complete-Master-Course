@@ -21,3 +21,6 @@ spec:
           requests:
             cpu: "100m"   # Requesting 100 milliCPUs
             memory: "64Mi" # Requesting 64 MiB of memory
+          limits:
+            cpu: "200m"   # Setting CPU limit to 200 milliCPUs
+            memory: "128Mi" # Setting memory limit to 128 MiB
