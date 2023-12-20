@@ -16,28 +16,28 @@ This is a simple Kubernetes deployment manifest for an argocd project:
 Create the project in Argo CD:
 
 ```bash
-kubectl apply -f 0-Demo_Files/Project_Intro/project_with_finalizer.yaml
+kubectl apply -f 0-Demo_Files/Project_Intro/project_with_finalizer.yaml -n argocd
 ```
 
 ## Step 3: Attempt to Delete the Project
 Try deleting the project:
 
 ```bash
-kubectl delete appprojects.argoproj.io example-project-with-finalizer
+kubectl delete appprojects.argoproj.io example-project-with-finalizer -n argocd
 ```
 
 ## Step 4: Remove the Finalizer
 Manually remove the finalizer to allow deletion:
 
 ```bash
-kubectl edit appprojects.argoproj.io example-project-with-finalizer
+kubectl edit appprojects.argoproj.io example-project-with-finalizer -n argocd
 ```
 
 ## Step 5: Confirm Deletion
 Confirm that the project is deleted:
 
 ```bash
-kubectl get appprojects.argoproj.io
+kubectl get appprojects.argoproj.io -n argocd
 ```
 
 ## Use Case
