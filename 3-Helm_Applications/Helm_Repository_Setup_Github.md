@@ -26,7 +26,7 @@
 ## 5. Create an Index File
 - Generate an `index.yaml` file:
   ```shell
-  helm repo index my-helm-repo/ --url https://your-username.github.io/my-helm-repo/
+  helm repo index . --url https://github.com/SMACAcademy/sample_helm_repo
   ```
 
 ## 6. Push Changes to GitHub
@@ -44,7 +44,7 @@
 ## 8. Add Your Helm Repository
 - Add the repository to Helm:
   ```shell
-  helm repo add my-helm-repo https://your-username.github.io/my-helm-repo/
+  helm repo add sample_helm_repo https://github.com/SMACAcademy/sample_helm_repo
   ```
 
 ## 9. Install Chart from Your Repository
